@@ -45,9 +45,11 @@ describe('Bank', function () {
 
       let expected =
         format +
-        `\n${bank.formatDate(transaction.date)} || ${transaction.credit} || ${
+        `\n${bank._formatDate(
+          transaction.date
+        )} || ${transaction.credit.toFixed(2)} || ${
           transaction.debit
-        } || ${transaction.balance}`;
+        } || ${transaction.balance.toFixed(2)}`;
 
       bank.deposit(1000.0);
       expect(bank.printStatement()).toEqual(expected);
@@ -63,26 +65,27 @@ describe('Bank', function () {
 
       let expected =
         format +
-        `\n${bank.formatDate(transaction.date)} || ${transaction.credit} || ${
-          transaction.debit
-        } || ${transaction.balance}`;
+        `\n${bank._formatDate(transaction.date)} || ${
+          transaction.credit
+        } || ${transaction.debit.toFixed(2)} || ${transaction.balance.toFixed(
+          2
+        )}`;
 
       bank.withdraw(100);
       expect(bank.printStatement()).toEqual(expected);
     });
   });
 
-  describe('formatDate', () => {
+  describe('_formatDate', () => {
     it('formate the date in the required way', () => {
       let date = '2020-10-05';
-      expect(bank.formatDate(date)).toEqual('05/10/2020');
+      expect(bank._formatDate(date)).toEqual('05/10/2020');
     });
   });
 
-  describe('formatBalance', () => {
+  describe('_formatBalance', () => {
     it('formate the balance in the required way', () => {
-      let balance = '500';
-      expect(bank.formatBalance(balance)).toEqual('500.00');
+      expect(bank._formatBalance(500)).toEqual('500.00');
     });
   });
 });
