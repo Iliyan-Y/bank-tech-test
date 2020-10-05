@@ -48,7 +48,6 @@ describe('Bank', function () {
         `\n${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`;
 
       bank.deposit(1000.0);
-      console.log(bank.printStatement());
       expect(bank.printStatement()).toEqual(expected);
     });
 
@@ -65,7 +64,6 @@ describe('Bank', function () {
         `\n${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`;
 
       bank.withdraw(100);
-      console.log(bank.printStatement());
       expect(bank.printStatement()).toEqual(expected);
     });
   });

@@ -11,6 +11,7 @@ class Bank {
 
   withdraw(amount) {
     this.balance -= amount;
+    this.statement.push(new Transaction('', amount, this.balance));
   }
 
   printStatement() {
