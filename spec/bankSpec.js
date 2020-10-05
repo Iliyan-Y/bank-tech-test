@@ -15,4 +15,11 @@ describe('Bank', function () {
       expect(bank.balance > 0).toBe(true);
     });
   });
+
+  describe('withdraw', () => {
+    it('Decrease the current balance', () => {
+      bank.withdraw(5);
+      expect(bank.balance < 0).toBe(true);
+    });
+  });
 });
