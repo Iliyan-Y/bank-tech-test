@@ -10,4 +10,9 @@ describe('Transaction', function () {
     let transaction = new Transaction(5.0);
     expect(transaction.credit).toEqual(5.0);
   });
+
+  it('has debit option amount field', () => {
+    let transaction = new Transaction('', 6);
+    expect(transaction.debit).toEqual(6);
+  });
 });
