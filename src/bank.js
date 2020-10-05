@@ -6,6 +6,7 @@ class Bank {
 
   deposit(amount) {
     this.balance += amount;
+    this.statement.push(new Transaction(amount, '', this.balance));
   }
 
   withdraw(amount) {
@@ -13,6 +14,10 @@ class Bank {
   }
 
   printStatement() {
-    return 'date || credit || debit || balance';
+    let format = 'date || credit || debit || balance';
+    let output = this.statement.map((each) => {
+      return `\n${each.date} || ${each.credit} || ${each.debit} || ${each.balance}`;
+    });
+    return format + output;
   }
 }

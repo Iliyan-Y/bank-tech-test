@@ -45,8 +45,10 @@ describe('Bank', function () {
 
       let expected =
         format +
-        `\n ${transaction.date} || ${transaction.credit} ||
-     ${transaction.debit} || ${transaction.balance} `;
+        `\n${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`;
+
+      bank.deposit(1000.0);
+      console.log(bank.printStatement());
       expect(bank.printStatement()).toEqual(expected);
     });
   });
