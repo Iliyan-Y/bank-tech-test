@@ -5,4 +5,9 @@ describe('Transaction', function () {
 
     expect(transaction.date).toEqual(expected);
   });
+
+  it('has credit option amount field', () => {
+    let transaction = new Transaction(5.0);
+    expect(transaction.credit).toEqual(5.0);
+  });
 });
