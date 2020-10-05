@@ -28,4 +28,11 @@ describe('Bank', function () {
       expect(bank.statement).toEqual([]);
     });
   });
+
+  describe('printStatement', () => {
+    it('Prints out the stored history of the account', () => {
+      expected = 'date || credit || debit || balance';
+      expect(bank.printStatement).toEqual(expected);
+    });
+  });
 });
