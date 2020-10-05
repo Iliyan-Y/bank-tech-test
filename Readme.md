@@ -15,4 +15,4 @@
 
 ## Photo example
 
-![appExample]('./appExample.png')
+![appExample]('appExample.png')
