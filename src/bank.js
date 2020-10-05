@@ -1,5 +1,5 @@
 class Bank {
   constructor() {
-    this.balance = 0;
+    this.balance = 0.0;
   }
 }
