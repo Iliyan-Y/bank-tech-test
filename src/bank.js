@@ -17,8 +17,15 @@ class Bank {
   printStatement() {
     let format = 'date || credit || debit || balance';
     let output = this.statement.map((each) => {
-      return `\n${each.date} || ${each.credit} || ${each.debit} || ${each.balance}`;
+      return `\n${this.formatDate(each.date)} || ${each.credit} || ${
+        each.debit
+      } || ${each.balance}`;
     });
     return format + output;
+  }
+
+  formatDate(date) {
+    date = date.split('-');
+    return date[2] + '/' + date[1] + '/' + date[0];
   }
 }
