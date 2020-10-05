@@ -11,4 +11,8 @@ class Bank {
   withdraw(amount) {
     this.balance -= amount;
   }
+
+  printStatement() {
+    return 'date || credit || debit || balance';
+  }
 }

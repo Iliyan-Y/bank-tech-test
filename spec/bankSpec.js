@@ -32,7 +32,7 @@ describe('Bank', function () {
   describe('printStatement', () => {
     it('Prints out the stored history of the account', () => {
       expected = 'date || credit || debit || balance';
-      expect(bank.printStatement).toEqual(expected);
+      expect(bank.printStatement()).toEqual(expected);
     });
   });
 });
