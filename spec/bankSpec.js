@@ -78,4 +78,11 @@ describe('Bank', function () {
       expect(bank.formatDate(date)).toEqual('05/10/2020');
     });
   });
+
+  describe('formatBalance', () => {
+    it('formate the balance in the required way', () => {
+      let balance = '500';
+      expect(bank.formatBalance(balance)).toEqual('500.00');
+    });
+  });
 });
