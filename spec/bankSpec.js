@@ -25,7 +25,7 @@ describe('Bank', function () {
 
   describe('statement', () => {
     it('Store the history of the account', () => {
-      expect(bank.statement).toBe([]);
+      expect(bank.statement).toEqual([]);
     });
   });
 });
