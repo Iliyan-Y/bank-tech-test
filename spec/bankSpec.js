@@ -67,4 +67,11 @@ describe('Bank', function () {
       expect(bank.printStatement()).toEqual(expected);
     });
   });
+
+  describe('formateDate', () => {
+    it('formate the date in the required way', () => {
+      let date = '2020-10-05';
+      expect(bank.formateDate(date)).toEqual('05/10/2020');
+    });
+  });
 });
