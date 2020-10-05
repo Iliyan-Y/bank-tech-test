@@ -22,4 +22,10 @@ describe('Bank', function () {
       expect(bank.balance < 0).toBe(true);
     });
   });
+
+  describe('statement', () => {
+    it('Store the history of the account', () => {
+      expect(bank.statement).toBe([]);
+    });
+  });
 });
