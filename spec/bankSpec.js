@@ -30,8 +30,23 @@ describe('Bank', function () {
   });
 
   describe('printStatement', () => {
+    let format = 'date || credit || debit || balance';
     it('Prints out the stored history of the account', () => {
-      expected = 'date || credit || debit || balance';
+      expect(bank.printStatement()).toEqual(format);
+    });
+
+    it('Prints out the stored history of the account with one credit transaction', () => {
+      let transaction = {
+        date: new Date().toISOString().split('T')[0],
+        credit: 1000.0,
+        debit: '',
+        balance: 1000.0,
+      };
+
+      let expected =
+        format +
+        `\n ${transaction.date} || ${transaction.credit} ||
+     ${transaction.debit} || ${transaction.balance} `;
       expect(bank.printStatement()).toEqual(expected);
     });
   });
