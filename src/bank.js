@@ -6,35 +6,35 @@ class Bank {
 
   deposit(amount) {
     this.balance += amount;
-    this.statement.push(
-      new Transaction(
-        this._formatBalance(amount),
-        '',
-        this._formatBalance(this.balance)
-      )
-    );
+    this._saveTransaction(this._formatBalance(amount), '', this.balance);
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    this.statement.push(
-      new Transaction(
-        '',
-        this._formatBalance(amount),
-        this._formatBalance(this.balance)
-      )
-    );
+    this._saveTransaction('', this._formatBalance(amount), this.balance);
   }
 
   printStatement() {
     let format = 'date || credit || debit || balance';
-    let reverseStatement = this.statement.reverse();
-    let output = reverseStatement.map((each) => {
+    let reverseOrder = this.statement.reverse();
+    return format + this._renderStatement(reverseOrder);
+  }
+
+  // helpers
+
+  _saveTransaction(credit, debit, balance) {
+    this.statement.push(
+      new Transaction(credit, debit, this._formatBalance(balance))
+    );
+  }
+
+  _renderStatement(statement) {
+    let output = statement.map((each) => {
       return `\n${this._formatDate(each.date)} || ${each.credit} || ${
         each.debit
       } || ${each.balance}`;
     });
-    return format + output.join('');
+    return output.join('');
   }
 
   _formatDate(date) {
