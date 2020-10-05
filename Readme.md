@@ -15,4 +15,4 @@
 
 ## Photo example
 
-![appExample]('appExample.png')
+![appExample](https://raw.githubusercontent.com/Iliyan-Y/bank-tech-test/main/appExample.png)
