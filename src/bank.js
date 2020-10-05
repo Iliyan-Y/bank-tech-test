@@ -28,12 +28,13 @@ class Bank {
 
   printStatement() {
     let format = 'date || credit || debit || balance';
-    let output = this.statement.map((each) => {
+    let reverseStatement = this.statement.reverse();
+    let output = reverseStatement.map((each) => {
       return `\n${this._formatDate(each.date)} || ${each.credit} || ${
         each.debit
       } || ${each.balance}`;
     });
-    return format + output;
+    return format + output.join('');
   }
 
   _formatDate(date) {
