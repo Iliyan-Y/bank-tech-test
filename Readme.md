@@ -1,6 +1,17 @@
-# To run the tests
+# Set Up
 
-- open SpecRunner.html
+- open SpecRunner.html -> will show the test results
+- while SpecRunner.html is open right click and inspect the page to open the console tab
+- in the console tap create new account "let account = new Bank()"
+- to deposit account.deposit(any amount you wish)
+- to withdraw account.withdraw(any amount you wish)
+- to print all the activity account.printStatement()
+
+# Code structure
+
+- The bank class is responsible for all the functions connected to the account.
+- The transaction class is responsible to store all of the details for the current transaction
+- The bank statement is storing all of the transactions made in the account
 
 ## Requirements
 
