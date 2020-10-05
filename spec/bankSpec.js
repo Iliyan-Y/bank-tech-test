@@ -5,7 +5,7 @@ describe('Player', function () {
     bank = new Bank();
   });
 
-  it('should be able to play a Song', function () {
-    expect(typeof bank.banalce).toEqual('number');
+  it('Initialize Bank class  with numerical balance', function () {
+    expect(typeof bank.balance).toEqual('number');
   });
 });
