@@ -51,5 +51,22 @@ describe('Bank', function () {
       console.log(bank.printStatement());
       expect(bank.printStatement()).toEqual(expected);
     });
+
+    it('Prints out the statement with one debit', () => {
+      let transaction = {
+        date: new Date().toISOString().split('T')[0],
+        credit: '',
+        debit: 100,
+        balance: -100,
+      };
+
+      let expected =
+        format +
+        `\n${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`;
+
+      bank.withdraw(100);
+      console.log(bank.printStatement());
+      expect(bank.printStatement()).toEqual(expected);
+    });
   });
 });
