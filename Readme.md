@@ -1,13 +1,13 @@
 # Set Up
 
-- npm install
-- to see the test coverage npm test
-- open SpecRunner.html -> will show the test results
+- `npm install`
+- to see the test coverage `npm test`
+- `open SpecRunner.html` -> will show the test results
 - while SpecRunner.html is open right click and inspect the page to open the console tab
-- in the console tap create new account "let account = new Bank()"
-- to deposit account.deposit(any amount you wish)
-- to withdraw account.withdraw(any amount you wish)
-- to print all the activity account.printStatement()
+- in the console tap create new account `let account = new Bank()`
+- to deposit `account.deposit(any amount you wish)`
+- to withdraw `account.withdraw(any amount you wish)`
+- to print all the activity `account.printStatement()`
 
 # Code structure
 
