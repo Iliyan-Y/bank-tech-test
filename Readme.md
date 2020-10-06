@@ -1,5 +1,7 @@
 # Set Up
 
+- npm install
+- to see the test coverage npm test
 - open SpecRunner.html -> will show the test results
 - while SpecRunner.html is open right click and inspect the page to open the console tab
 - in the console tap create new account "let account = new Bank()"
