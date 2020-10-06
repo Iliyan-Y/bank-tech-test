@@ -27,6 +27,14 @@ describe('Bank', function () {
     it('Store the history of the account', () => {
       expect(bank.statement).toEqual([]);
     });
+    it('Adds new transaction in to the statement history on each deposit', () => {
+      bank.deposit(40);
+      expect(bank.statement.length > 0).toBe(true);
+    });
+    it('Adds new transaction in to the statement history on each withdraw', () => {
+      bank.withdraw(40);
+      expect(bank.statement.length > 0).toBe(true);
+    });
   });
 
   describe('printStatement', () => {
