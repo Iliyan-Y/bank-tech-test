@@ -6,25 +6,27 @@ class Bank {
 
   deposit(amount) {
     this.balance += amount;
-    this._saveTransaction(this._formatBalance(amount), '');
+    let transaction = new Transaction(this._formatBalance(amount), '');
+    this._saveTransaction(transaction);
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    this._saveTransaction('', this._formatBalance(amount));
+    this._saveTransaction(new Transaction('', this._formatBalance(amount)));
   }
 
   printStatement() {
     let format = 'date || credit || debit || balance';
     let reverseOrder = this.statement.reverse();
+    //console.log(format + this._renderStatement(reverseOrder));
     return format + this._renderStatement(reverseOrder);
   }
 
   // helpers
 
-  _saveTransaction(credit, debit) {
+  _saveTransaction(transaction) {
     this.statement.push({
-      transaction: new Transaction(credit, debit),
+      transaction,
       currentBalance: this._formatBalance(this.balance),
     });
   }
