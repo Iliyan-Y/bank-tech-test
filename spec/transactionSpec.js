@@ -14,9 +14,4 @@ describe('Transaction', function () {
     let transaction = new Transaction('', 6);
     expect(transaction.debit).toEqual(6);
   });
-
-  it('has current balance field', () => {
-    let transaction = new Transaction('', '', 20);
-    expect(transaction.balance).toEqual(20);
-  });
 });

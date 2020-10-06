@@ -6,12 +6,12 @@ class Bank {
 
   deposit(amount) {
     this.balance += amount;
-    this._saveTransaction(this._formatBalance(amount), '', this.balance);
+    this._saveTransaction(this._formatBalance(amount), '');
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    this._saveTransaction('', this._formatBalance(amount), this.balance);
+    this._saveTransaction('', this._formatBalance(amount));
   }
 
   printStatement() {
@@ -22,17 +22,18 @@ class Bank {
 
   // helpers
 
-  _saveTransaction(credit, debit, balance) {
-    this.statement.push(
-      new Transaction(credit, debit, this._formatBalance(balance))
-    );
+  _saveTransaction(credit, debit) {
+    this.statement.push({
+      transaction: new Transaction(credit, debit),
+      currentBalance: this._formatBalance(this.balance),
+    });
   }
 
   _renderStatement(statement) {
     let output = statement.map((each) => {
-      return `\n${this._formatDate(each.date)} || ${each.credit} || ${
-        each.debit
-      } || ${each.balance}`;
+      return `\n${this._formatDate(each.transaction.date)} || ${
+        each.transaction.credit
+      } || ${each.transaction.debit} || ${each.currentBalance}`;
     });
     return output.join('');
   }
