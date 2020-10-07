@@ -18,8 +18,9 @@ class Bank {
   printStatement() {
     let format = 'date || credit || debit || balance';
     let reverseOrder = this.statement.reverse();
-    //console.log(format + this._renderStatement(reverseOrder));
-    return format + this._renderStatement(reverseOrder);
+    let output = format + this._renderStatement(reverseOrder);
+    console.log(output);
+    return output;
   }
 
   // helpers
