@@ -1,18 +1,21 @@
 class Bank {
-  constructor() {
+  constructor(transaction = Transaction) {
     this.balance = 0.0;
     this.statement = [];
+    this.transaction = transaction;
   }
 
   deposit(amount) {
     this.balance += amount;
-    let transaction = new Transaction(this._formatBalance(amount), '');
+    let transaction = new this.transaction(this._formatBalance(amount), '');
     this._saveTransaction(transaction);
   }
 
   withdraw(amount) {
     this.balance -= amount;
-    this._saveTransaction(new Transaction('', this._formatBalance(amount)));
+    this._saveTransaction(
+      new this.transaction('', this._formatBalance(amount))
+    );
   }
 
   printStatement() {
